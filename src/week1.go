@@ -1,6 +1,7 @@
 package main
 
 import (
+	"common"
 	"fmt"
 )
 
@@ -14,18 +15,11 @@ func main() {
 	fmt.Println(ans)
 }
 
-func max(x, y int) int {
-	if x > y {
-		return x
-	}
-	return y
-}
-
 func solve(inputs []int) int {
 	ans := inputs[0]
 	currentSum := inputs[0]
 	for _, n := range inputs[1:] {
-		currentSum = max(currentSum + n, n)
+		currentSum = util.Max(currentSum+n, n)
 		if currentSum > ans {
 			ans = currentSum
 		}
